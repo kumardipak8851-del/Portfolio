@@ -1717,9 +1717,12 @@ body {
     }
 
     .hero-name {
-        font-size: clamp(2.6rem, 8.5vw, 4.2rem);
-        white-space: normal;
-        word-break: break-word;
+        font-size: clamp(2.1rem, 9.5vw, 3.8rem) !important;
+        white-space: normal !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+        width: 100% !important;
     }
 
     .hero-right {
