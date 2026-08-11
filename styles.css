@@ -1600,8 +1600,46 @@ body {
     border-radius: 2px;
 }
 
+/* ==========================================================================
+   COMPLETE RESPONSIVE DESIGN SYSTEM (Ultra-Wide to Small Mobile)
+   Breakpoints: 3440px | 2560px | 1920px | 1600px | 1440px | 1280px | 1024px | 834px | 768px | 600px | 430px | 414px | 390px | 375px | 360px | 320px
+   ========================================================================== */
+
+/* Body scroll lock when mobile menu is active */
+body.no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+/* Ultra-Wide & 4K Displays (2560px - 3440px) */
+@media (min-width: 1921px) {
+    .section-container, .hero-section, .header-container, .footer-container {
+        max-width: 1680px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* Desktop & Laptops (1280px - 1920px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .hero-section {
+        padding: 5.5rem 2.5rem 3rem 2.5rem;
+    }
+    .hero-grid {
+        gap: 3rem;
+    }
+    .content-section {
+        padding: 4.5rem 2.5rem;
+    }
+}
+
 /* Media Queries for Comprehensive Mobile & Tablet Responsiveness */
 @media (max-width: 1024px) {
+    .hero-section {
+        padding: 5rem 2rem 2.5rem 2rem;
+        min-height: auto;
+    }
+
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1616,12 +1654,17 @@ body {
     }
 
     .stats-stack {
-        width: 200px;
+        width: 220px;
     }
 
     .projects-grid, .services-grid, .contact-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.8rem;
+    }
+
+    .content-section {
+        padding: 4rem 2rem;
+        min-height: auto;
     }
 }
 
@@ -1792,7 +1835,9 @@ body {
     }
 
     .hero-name {
-        font-size: clamp(2.3rem, 10vw, 3.4rem);
+        font-size: clamp(1.95rem, 9.5vw, 3.2rem) !important;
+        white-space: normal !important;
+        max-width: 100% !important;
     }
 
     .hero-role {
@@ -1839,8 +1884,8 @@ body {
     }
 
     .section-title {
-        font-size: clamp(2rem, 8vw, 2.8rem);
-        margin-bottom: 1.6rem;
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+        margin-bottom: 1.5rem;
     }
 
     .testimonial-card {
@@ -1856,14 +1901,14 @@ body {
 
 @media (max-width: 360px) {
     .hero-name {
-        font-size: 2.1rem;
+        font-size: 1.85rem !important;
     }
 
     .script-greeting {
-        font-size: 1.9rem;
+        font-size: 1.85rem;
     }
 
     .section-title {
-        font-size: 1.85rem;
+        font-size: 1.75rem;
     }
 }
