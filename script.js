@@ -504,121 +504,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('touchend', stopDrag);
     };
 
-    // High-Contrast Single Premium Custom Cursor Controller
-    const setupCustomCursor = () => {
-        const cursorContainer = document.getElementById('custom-cursor');
-        const dot = document.getElementById('cursor-dot');
-        const ring = document.getElementById('cursor-ring');
-        const badge = document.getElementById('cursor-badge');
-
-        if (!cursorContainer || !dot || !ring) return;
-
-        // Enable custom cursor for desktop viewports (width > 1024)
-        const isDesktop = window.innerWidth > 1024;
-        if (!isDesktop) {
-            cursorContainer.style.display = 'none';
-            document.body.classList.remove('has-custom-cursor');
-            return;
-        }
-
-        // Add body class for cursor: none styling
-        document.body.classList.add('has-custom-cursor');
-
-        // Initialize positions to center of screen
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let ringX = mouseX;
-        let ringY = mouseY;
-
-        // Smooth Lerp factor (0.18 for smooth outer ring delay)
-        const lerpFactor = 0.18;
-
-        // Initial positioning
-        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            // Fast hardware-accelerated center dot movement
-            dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-            cursorContainer.classList.remove('custom-cursor-hidden');
-        }, { passive: true });
-
-        // Animation Loop for Outer Ring via requestAnimationFrame
-        const renderCursor = () => {
-            ringX += (mouseX - ringX) * lerpFactor;
-            ringY += (mouseY - ringY) * lerpFactor;
-            ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
-
-            requestAnimationFrame(renderCursor);
-        };
-        requestAnimationFrame(renderCursor);
-
-        // Click Scale & Ripple Animation
-        window.addEventListener('mousedown', () => {
-            dot.classList.add('is-clicked');
-            ring.classList.add('is-clicked');
-        });
-
-        window.addEventListener('mouseup', () => {
-            dot.classList.remove('is-clicked');
-            ring.classList.remove('is-clicked');
-        });
-
-        // Window Edge Detection
-        document.addEventListener('mouseleave', () => {
-            cursorContainer.classList.add('custom-cursor-hidden');
-        });
-
-        document.addEventListener('mouseenter', () => {
-            cursorContainer.classList.remove('custom-cursor-hidden');
-        });
-
-        // Hover Handlers for Interactive Elements
-        const interactiveItems = document.querySelectorAll('.brand-logo, .brand-logo *, .nav-link, .footer-link, .footer-social-link, a, .primary-btn, .secondary-btn, .cta-btn, .cta-highlight, .footer-cta-link, .pill-btn-contact, button, [role="button"]');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        interactiveItems.forEach((item) => {
-            item.addEventListener('mouseenter', () => {
-                ring.classList.add('is-hover-target');
-                dot.classList.add('is-hover-target');
-            });
-            item.addEventListener('mouseleave', () => {
-                ring.classList.remove('is-hover-target');
-                dot.classList.remove('is-hover-target');
-                item.style.transform = '';
-            });
-
-            // Subtle magnetic pull for buttons
-            if (item.classList.contains('primary-btn') || item.classList.contains('secondary-btn') || item.classList.contains('cta-btn')) {
-                item.addEventListener('mousemove', (e) => {
-                    const rect = item.getBoundingClientRect();
-                    const centerX = rect.left + rect.width / 2;
-                    const centerY = rect.top + rect.height / 2;
-                    const diffX = e.clientX - centerX;
-                    const diffY = e.clientY - centerY;
-
-                    item.style.transform = `translate3d(${diffX * 0.12}px, ${diffY * 0.12}px, 0)`;
-                });
-            }
-        });
-
-        projectCards.forEach((card) => {
-            card.addEventListener('mouseenter', () => {
-                if (badge) badge.textContent = 'VIEW';
-                ring.classList.add('is-hover-card');
-                dot.classList.add('is-hover-card');
-            });
-            card.addEventListener('mouseleave', () => {
-                if (badge) badge.textContent = '';
-                ring.classList.remove('is-hover-card');
-                dot.classList.remove('is-hover-card');
-            });
-        });
-    };
-
     // Initialize Application
     const init = async () => {
         resizeCanvas();
@@ -631,7 +516,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setupScrollReveal();
         setupContactFeedbackForm();
         setupTestimonialsInteractiveScrollAndDrag();
-        setupCustomCursor();
 
         updateTargetFrame();
         startAnimationLoop();
