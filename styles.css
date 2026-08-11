@@ -1712,6 +1712,18 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
+    .kinetic-hud-card {
+        padding: 2rem 1.5rem;
+        gap: 1.4rem;
+        border-radius: 22px;
+        width: 90%;
+    }
+
+    .kinetic-bg-glow {
+        width: 450px;
+        height: 450px;
+    }
+
     .mobile-menu-toggle {
         display: flex;
     }
@@ -1822,6 +1834,46 @@ body.no-scroll {
 
 /* Mobile Breakpoints: 480px, 430px, 414px, 390px, 375px, 320px */
 @media (max-width: 480px) {
+    .kinetic-hud-card {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+        border-radius: 18px;
+        width: 94%;
+    }
+
+    .kinetic-bg-glow {
+        width: 320px;
+        height: 320px;
+    }
+
+    .kinetic-name {
+        font-size: clamp(1.45rem, 7vw, 2.2rem);
+        gap: 0.4rem;
+    }
+
+    .hud-percentage {
+        font-size: 1.2rem;
+    }
+
+    .hud-badge {
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+    }
+
+    .loader-subtitle-wrap {
+        padding: 0.35rem 0.8rem;
+    }
+
+    .loader-title {
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+    }
+
+    .ticker-text {
+        font-size: 0.6rem;
+        letter-spacing: 0.06em;
+    }
+
     .ui-overlay {
         padding: 0.9rem 0.8rem;
     }
