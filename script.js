@@ -148,10 +148,26 @@ document.addEventListener('DOMContentLoaded', () => {
         renderFrame(Math.round(currentFrame));
     };
 
-    // Render Canvas Frame
+    // Render Canvas Frame with nearest loaded image fallback
     const renderFrame = (frameIndex) => {
         const index = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.round(frameIndex)));
-        const img = images[index];
+        let img = images[index];
+
+        // Fallback to nearest loaded frame if current target frame is still transferring
+        if (!img || !img.complete || img.naturalWidth === 0) {
+            for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
+                const prev = images[index - offset];
+                if (prev && prev.complete && prev.naturalWidth > 0) {
+                    img = prev;
+                    break;
+                }
+                const next = images[index + offset];
+                if (next && next.complete && next.naturalWidth > 0) {
+                    img = next;
+                    break;
+                }
+            }
+        }
 
         if (!img || !img.complete || img.naturalWidth === 0) return;
 
@@ -596,6 +612,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setupTestimonialsInteractiveScrollAndDrag();
         setupCustomCursor();
 
+        updateTargetFrame();
+        startAnimationLoop();
+
         await preloadImages();
 
         setTimeout(() => {
@@ -604,9 +623,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             animateStats();
         }, 300);
-
-        updateTargetFrame();
-        startAnimationLoop();
     };
 
     init();
