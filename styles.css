@@ -415,6 +415,7 @@ body {
     height: 100vh;
     z-index: 1;
     overflow: hidden;
+    background: radial-gradient(circle at 50% 35%, #180306 0%, #080306 45%, #040406 100%);
 }
 
 #animation-canvas {
