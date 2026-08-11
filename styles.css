@@ -1717,6 +1717,15 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
+    .canvas-overlay {
+        background: linear-gradient(180deg, rgba(4, 4, 6, 0.55) 0%, rgba(4, 4, 6, 0.2) 40%, rgba(4, 4, 6, 0.85) 100%) !important;
+    }
+
+    .hero-grid, .hero-left, .hero-right {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
     .kinetic-hud-card {
         padding: 2rem 1.5rem;
         gap: 1.4rem;
