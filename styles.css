@@ -1434,7 +1434,7 @@ body {
 /* Responsive Footer Adjustments */
 /* Premium Custom Cursor System */
 @media (hover: hover) and (pointer: fine) {
-    body, a, button, input, select, textarea, [role="button"], .project-card, .service-card, .contact-info-card {
+    *, *::before, *::after, body, header, nav, .site-header, .header-container, .brand-logo, .logo-mark, .logo-text, .nav-menu, .nav-link, a, button, input, select, textarea, [role="button"], .project-card, .service-card, .contact-info-card {
         cursor: none !important;
     }
 
@@ -1446,8 +1446,8 @@ body {
         height: 8px;
         background-color: var(--red-primary);
         border-radius: 50%;
-        pointer-events: none;
-        z-index: 999999;
+        pointer-events: none !important;
+        z-index: 9999999;
         transform: translate(-50%, -50%);
         box-shadow: 0 0 10px var(--red-glow);
         transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease;
@@ -1462,8 +1462,8 @@ body {
         border: 1.5px solid rgba(240, 29, 36, 0.6);
         background: rgba(240, 29, 36, 0.05);
         border-radius: 50%;
-        pointer-events: none;
-        z-index: 999998;
+        pointer-events: none !important;
+        z-index: 9999998;
         transform: translate(-50%, -50%);
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
