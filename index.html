@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundan Kumar — AI Website Developer</title>
+    <meta name="description" content="Portfolio of Kundan Kumar, AI Website Developer creating modern, responsive and professional websites using AI tools and modern web technologies.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@600;700&family=Outfit:wght@800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Unique Kinetic Matrix Preloader Screen -->
+    <div id="loader" class="loader-overlay">
+        <div class="kinetic-bg-glow"></div>
+        <div class="scanline-beam"></div>
+        
+        <div class="loader-content kinetic-hud-card">
+            <!-- HUD Top Meta -->
+            <div class="hud-top-meta">
+                <span class="hud-badge"><span class="pulse-dot"></span> SYSTEM ONLINE</span>
+                <span id="loader-percentage" class="hud-percentage">0%</span>
+            </div>
+
+            <!-- Kinetic Name Display: KUNDAN KUMAR -->
+            <div class="kinetic-name-wrap">
+                <h1 class="kinetic-name" id="kinetic-name">
+                    <span class="name-word"><span class="char">K</span><span class="char">U</span><span class="char">N</span><span class="char">D</span><span class="char">A</span><span class="char">N</span></span>
+                    <span class="name-word"><span class="char">K</span><span class="char">U</span><span class="char">M</span><span class="char">A</span><span class="char">R</span></span>
+                </h1>
+            </div>
+
+            <!-- Subtitle: LOADING PORTFOLIO -->
+            <div class="loader-subtitle-wrap">
+                <span class="subtitle-bracket">[</span>
+                <span class="loader-title">LOADING PORTFOLIO</span>
+                <span class="subtitle-bracket">]</span>
+            </div>
+
+            <!-- Equalizer & Progress Line -->
+            <div class="loader-progress-wrap">
+                <div class="eq-bars">
+                    <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+                    <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+                    <div class="eq-bar"></div><div class="eq-bar"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <!-- Dynamic Ticker -->
+            <div class="hud-ticker">
+                <span id="loader-status" class="ticker-text">INITIALIZING DIGITAL CANVAS...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="site-header">
+        <div class="header-container">
+            <a href="#hero" class="brand-logo">
+                <span class="logo-mark">KK</span>
+                <span class="logo-text">KUNDAN.</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link nav-contact-highlight">Contact</a>
+            </nav>
+            <a href="#contact" class="cta-btn cta-highlight">Start a Project</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Canvas Background Animation Container -->
+    <div class="canvas-container">
+        <canvas id="animation-canvas"></canvas>
+        <div class="canvas-overlay"></div>
+    </div>
+
+    <!-- Scroll Track Container -->
+    <div id="scroll-container" class="scroll-container">
+        
+        <!-- SECTION 1: HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="hero-grid">
+                <!-- Left Column Content -->
+                <div class="hero-left">
+                    <span class="script-greeting">Hello, I'm</span>
+                    <h2 class="hero-name">Kundan Kumar</h2>
+                    <h3 class="hero-role">AI WEBSITE DEVELOPER</h3>
+                    <p class="hero-description">
+                        I create modern, responsive and professional websites for businesses, brands and individuals using AI-powered tools and modern web technologies.
+                    </p>
+                    
+                    <div class="hero-cta-buttons">
+                        <a href="#projects" class="primary-btn">View My Work</a>
+                        <a href="#contact" class="secondary-btn highlight-btn">Contact Me</a>
+                    </div>
+
+                    <div class="status-badge">
+                        <span class="globe-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </span>
+                        <span class="badge-text">BASED IN INDIA // AVAILABLE WORLDWIDE</span>
+                    </div>
+                </div>
+
+                <!-- Right Column Stats & Quote -->
+                <div class="hero-right">
+                    <div class="circle-badge">
+                        <div class="star-icon">✦</div>
+                        <p class="quote-text">Turning ideas into powerful digital experiences.</p>
+                    </div>
+
+                    <div class="stats-stack">
+                        <div class="stat-item">
+                            <div class="stat-number-wrap">
+                                <span class="stat-number" data-target="3">3</span>
+                                <span class="stat-plus">+</span>
+                            </div>
+                            <span class="stat-label">YEARS<br>EXPERIENCE</span>
+                        </div>
+                        <div class="stat-divider"></div>
+
+                        <div class="stat-item">
+                            <div class="stat-number-wrap">
+                                <span class="stat-number" data-target="40">40</span>
+                                <span class="stat-plus">+</span>
+                            </div>
+                            <span class="stat-label">PROJECTS<br>COMPLETED</span>
+                        </div>
+                        <div class="stat-divider"></div>
+
+                        <div class="stat-item">
+                            <div class="stat-number-wrap">
+                                <span class="stat-number" data-target="20">20</span>
+                                <span class="stat-plus">+</span>
+                            </div>
+                            <span class="stat-label">HAPPY<br>CLIENTS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div id="scroll-hint" class="scroll-hint">
+                <span class="hint-text">SCROLL TO EXPLORE</span>
+                <div class="mouse-icon">
+                    <div class="mouse-wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ABOUT ME -->
+        <section id="about" class="content-section reveal-section">
+            <div class="section-container">
+                <div class="section-tag">01 // ABOUT ME</div>
+                <h2 class="section-title">CREATING WITH <span class="accent-text">AI & PASSION</span></h2>
+                <div class="about-wrapper glass-panel">
+                    <p class="about-lead">
+                        Hi, I'm <strong>Kundan Kumar</strong>. I create professional websites using AI and modern web development tools.
+                    </p>
+                    <p class="about-body">
+                        My goal is to build websites that look clean, work smoothly and help businesses grow online. By combining artificial intelligence workflows with cutting-edge front-end technologies, I deliver fast, scalable, and visually stunning digital products.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-dot"></span>
+                            <span>AI-Accelerated Workflow</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-dot"></span>
+                            <span>Clean & Scalable Codebase</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-dot"></span>
+                            <span>User-Centered UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PROJECTS -->
+        <section id="projects" class="content-section reveal-section">
+            <div class="section-container">
+                <div class="section-tag">02 // PROJECTS</div>
+                <h2 class="section-title">FEATURED <span class="accent-text">PROJECTS</span></h2>
+                <div class="projects-grid">
+                    <div class="project-card glass-panel">
+                        <div class="project-header">
+                            <span class="project-tag">BUSINESS WEBSITE</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Apex Corporate Portal</h3>
+                        <p class="project-desc">Business Website</p>
+                        <p class="project-info">A sleek, modern corporate website built for high conversion, brand authority, and global client outreach.</p>
+                        <div class="tech-pills">
+                            <span class="pill">React</span>
+                            <span class="pill">AI Workflow</span>
+                            <span class="pill">CSS Motion</span>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </div>
+
+                    <div class="project-card glass-panel">
+                        <div class="project-header">
+                            <span class="project-tag">HOSPITALITY & DINING</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Savoria Bistro</h3>
+                        <p class="project-desc">Restaurant Website</p>
+                        <p class="project-info">Interactive culinary digital experience featuring online menus, visual storytelling, and table reservation integration.</p>
+                        <div class="tech-pills">
+                            <span class="pill">HTML5</span>
+                            <span class="pill">JavaScript</span>
+                            <span class="pill">Responsive UI</span>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </div>
+
+                    <div class="project-card glass-panel">
+                        <div class="project-header">
+                            <span class="project-tag">CREATIVE PORTFOLIO</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Aether Motion Studio</h3>
+                        <p class="project-desc">Portfolio Website</p>
+                        <p class="project-info">Dynamic animated showcase highlighting creative work, interactive 3D scroll effects, and custom frame sequences.</p>
+                        <div class="tech-pills">
+                            <span class="pill">Canvas 2D</span>
+                            <span class="pill">Frame Sequence</span>
+                            <span class="pill">UI/UX</span>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </div>
+
+                    <div class="project-card glass-panel">
+                        <div class="project-header">
+                            <span class="project-tag">E-COMMERCE PLATFORM</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3>Luxe Atelier Store</h3>
+                        <p class="project-desc">E-commerce Website</p>
+                        <p class="project-info">Modern online storefront with fluid cart interactions, instant search, and a responsive product catalog.</p>
+                        <div class="tech-pills">
+                            <span class="pill">E-commerce</span>
+                            <span class="pill">React</span>
+                            <span class="pill">Web Design</span>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SERVICES -->
+        <section id="services" class="content-section reveal-section">
+            <div class="section-container">
+                <div class="section-tag">03 // SERVICES</div>
+                <h2 class="section-title">WHAT I <span class="accent-text">BUILD</span></h2>
+                <div class="services-grid">
+                    <div class="service-card glass-panel">
+                        <div class="service-icon">🌐</div>
+                        <h3>Business Websites</h3>
+                        <p>Professional corporate websites designed to establish trust, showcase your brand, and drive customer conversion.</p>
+                    </div>
+
+                    <div class="service-card glass-panel">
+                        <div class="service-icon">🚀</div>
+                        <h3>Landing Pages</h3>
+                        <p>High-converting, campaign-focused landing pages optimized for maximum speed and engagement.</p>
+                    </div>
+
+                    <div class="service-card glass-panel">
+                        <div class="service-icon">🎨</div>
+                        <h3>Portfolio Websites</h3>
+                        <p>Custom interactive portfolios designed to showcase creative work, skills, and personal branding.</p>
+                    </div>
+
+                    <div class="service-card glass-panel">
+                        <div class="service-icon">🛍️</div>
+                        <h3>E-commerce Websites</h3>
+                        <p>Seamless online store experiences with secure checkout, product showcases, and mobile optimization.</p>
+                    </div>
+
+                    <div class="service-card glass-panel">
+                        <div class="service-icon">✨</div>
+                        <h3>Website Redesign</h3>
+                        <p>Transforming outdated websites with modern aesthetics, faster load times, and responsive layouts.</p>
+                    </div>
+
+                    <div class="service-card glass-panel">
+                        <div class="service-icon">📱</div>
+                        <h3>Responsive Web Design</h3>
+                        <p>Flawlessly adapting web experiences for desktop, tablet, and smartphone screen sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TESTIMONIALS (Left-to-Right & Right-to-Left Marquees) -->
+        <section id="testimonials" class="content-section testimonials-marquee-section reveal-section">
+            <div class="section-container full-width-container">
+                <div class="section-tag center-tag">04 // TESTIMONIALS</div>
+                <h2 class="section-title center-title">WHAT CLIENTS <span class="accent-text">SAY</span></h2>
+                
+                <div class="marquee-wrapper">
+                    <!-- Marquee Row 1: ANIMATION LEFT TO RIGHT -->
+                    <div class="marquee-track track-left-to-right">
+                        <div class="marquee-content">
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Kundan's ability to fuse complex 3D frame animations with intuitive UI design completely transformed our brand experience."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">AR</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Alex Rivera</h4>
+                                        <span class="author-role">Creative Director, Studio Apex</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Working with Kundan was an absolute game changer. He delivered pixel-perfect execution and ultra-fast performance."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">ER</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Elena Rostova</h4>
+                                        <span class="author-role">Head of Product, Veloce Tech</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"The attention to detail, motion physics, and clean code architecture Kundan brought to our campaign was world class."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">MV</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Marcus Vance</h4>
+                                        <span class="author-role">Founder, Pulse Interactive</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Kundan delivered our AI web platform ahead of schedule with flawless responsiveness across desktop and mobile."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">SC</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Sophia Chen</h4>
+                                        <span class="author-role">UX Director, Nexa Systems</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Content for Infinite Seamless Loop -->
+                        <div class="marquee-content" aria-hidden="true">
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Kundan's ability to fuse complex 3D frame animations with intuitive UI design completely transformed our brand experience."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">AR</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Alex Rivera</h4>
+                                        <span class="author-role">Creative Director, Studio Apex</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Working with Kundan was an absolute game changer. He delivered pixel-perfect execution and ultra-fast performance."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">ER</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Elena Rostova</h4>
+                                        <span class="author-role">Head of Product, Veloce Tech</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"The attention to detail, motion physics, and clean code architecture Kundan brought to our campaign was world class."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">MV</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Marcus Vance</h4>
+                                        <span class="author-role">Founder, Pulse Interactive</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Kundan delivered our AI web platform ahead of schedule with flawless responsiveness across desktop and mobile."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">SC</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Sophia Chen</h4>
+                                        <span class="author-role">UX Director, Nexa Systems</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marquee Row 2: ANIMATION RIGHT TO LEFT -->
+                    <div class="marquee-track track-right-to-left">
+                        <div class="marquee-content">
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"The interactive scroll animation and modern glassmorphism design skyrocketed our conversion rates overnight."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">DM</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">David Miller</h4>
+                                        <span class="author-role">VP Marketing, Quantum Labs</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Incredible AI-powered development workflow. The speed and quality of Kundan's code are second to none."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">AO</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Amara Okafor</h4>
+                                        <span class="author-role">Lead Designer, Horizon Media</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Kundan turned our complex product vision into a sleek, high-performing web application. Highly recommended!"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">LO</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Liam O'Connor</h4>
+                                        <span class="author-role">CEO, Driftwood Tech</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"A true master of modern frontend technologies. Smooth interactions and stunning aesthetic presentation throughout."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">PS</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Priya Sharma</h4>
+                                        <span class="author-role">Founder, Astra Digital</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Content for Infinite Seamless Loop -->
+                        <div class="marquee-content" aria-hidden="true">
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"The interactive scroll animation and modern glassmorphism design skyrocketed our conversion rates overnight."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">DM</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">David Miller</h4>
+                                        <span class="author-role">VP Marketing, Quantum Labs</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Incredible AI-powered development workflow. The speed and quality of Kundan's code are second to none."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">AO</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Amara Okafor</h4>
+                                        <span class="author-role">Lead Designer, Horizon Media</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"Kundan turned our complex product vision into a sleek, high-performing web application. Highly recommended!"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">LO</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Liam O'Connor</h4>
+                                        <span class="author-role">CEO, Driftwood Tech</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card glass-panel">
+                                <div class="testimonial-rating">★★★★★</div>
+                                <p class="testimonial-quote">"A true master of modern frontend technologies. Smooth interactions and stunning aesthetic presentation throughout."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">PS</div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Priya Sharma</h4>
+                                        <span class="author-role">Founder, Astra Digital</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CONTACT (HIGHLIGHTED SECTION) -->
+        <section id="contact" class="content-section contact-section contact-section-highlight reveal-section">
+            <div class="contact-spotlight-glow"></div>
+            <div class="section-container">
+                <div class="section-tag contact-tag-highlight">05 // GET IN TOUCH</div>
+                <h2 class="contact-headline">LET'S BUILD YOUR <span class="accent-text highlight-glow-text">WEBSITE</span></h2>
+                <p class="contact-desc">Have a website idea? Let's discuss it and bring your vision to life.</p>
+                
+                <div class="contact-details-grid">
+                    <div class="contact-info-card glass-panel highlight-card">
+                        <div class="info-label">NAME</div>
+                        <div class="info-value">Kundan Kumar</div>
+                    </div>
+
+                    <div class="contact-info-card glass-panel highlight-card">
+                        <div class="info-label">LOCATION</div>
+                        <div class="info-value">India 🇮🇳</div>
+                    </div>
+
+                    <div class="contact-info-card glass-panel highlight-card">
+                        <div class="info-label">ROLE</div>
+                        <div class="info-value">AI Website Developer</div>
+                    </div>
+
+                    <a href="https://wa.me/?text=Hi%20Kundan,%20I'd%20like%20to%20discuss%20a%20website%20project!" target="_blank" class="contact-info-card glass-panel highlight-card contact-action-card">
+                        <div class="info-label">DIRECT CONNECT</div>
+                        <div class="info-value action-value">💬 Chat on WhatsApp →</div>
+                    </a>
+                </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Clean & Professional Portfolio Footer -->
+        <footer class="portfolio-footer">
+            <div class="footer-inner">
+                <!-- Top Row: Brand Info & Simple CTA -->
+                <div class="footer-header-row">
+                    <div class="footer-brand-block">
+                        <div class="footer-brand-header">
+                            <span class="logo-mark">KK</span>
+                            <h3 class="footer-name">KUNDAN KUMAR</h3>
+                        </div>
+                        <span class="footer-role">AI Website Developer</span>
+                    </div>
+
+                    <a href="#contact" class="footer-cta-link">
+                        <span>Let's Work Together</span>
+                        <span class="cta-arrow">→</span>
+                    </a>
+                </div>
+
+                <!-- Middle Row: Navigation Links & Social Links -->
+                <div class="footer-links-row">
+                    <nav class="footer-nav-group" aria-label="Footer Navigation">
+                        <a href="#hero" class="footer-link">Home</a>
+                        <a href="#about" class="footer-link">About</a>
+                        <a href="#services" class="footer-link">Services</a>
+                        <a href="#projects" class="footer-link">Projects</a>
+                        <a href="#contact" class="footer-link">Contact</a>
+                    </nav>
+
+                    <div class="footer-social-group" aria-label="Social Profiles">
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-link">LinkedIn</a>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link">GitHub</a>
+                        <a href="https://wa.me/?text=Hi%20Kundan,%20I'd%20like%20to%20discuss%20a%20website%20project!" target="_blank" rel="noopener" class="footer-social-link">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Copyright -->
+                <div class="footer-bottom-row">
+                    <p class="copyright-text">© 2026 Kundan Kumar. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- UI Overlay HUD -->
+    <div id="ui-overlay" class="ui-overlay">
+        <div class="top-bar">
+            <div class="sequence-badge">
+                <span class="pulse-dot"></span>
+                <span id="frame-counter">FRAME 000 / 239</span>
+            </div>
+            <div class="progress-track">
+                <div id="scroll-progress-indicator" class="scroll-progress-fill"></div>
+            </div>
+    <!-- Custom Premium Cursor Elements -->
+    <div id="custom-cursor-dot" class="custom-cursor-dot" aria-hidden="true"></div>
+    <div id="custom-cursor-ring" class="custom-cursor-ring" aria-hidden="true">
+        <span id="cursor-text" class="cursor-text"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
