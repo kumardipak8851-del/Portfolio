@@ -77,10 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
 
-            // Start preloading images in background
+            // Start preloading images in background with automatic folder fallback
             for (let i = 0; i < TOTAL_FRAMES; i++) {
                 const img = new Image();
-                img.src = getFramePath(i);
+                const paddedIndex = String(i).padStart(6, '0');
+                const primarySrc = `./${FRAME_PREFIX}${paddedIndex}${FRAME_EXTENSION}`;
+                const secondarySrc = `./images/${FRAME_PREFIX}${paddedIndex}${FRAME_EXTENSION}`;
+
+                img.src = primarySrc;
 
                 img.onload = () => {
                     loadedCount++;
@@ -90,9 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
 
                 img.onerror = () => {
-                    loadedCount++;
-                    targetProgress = Math.round((loadedCount / TOTAL_FRAMES) * 100);
-                    if (loadedCount === TOTAL_FRAMES) preloadingComplete = true;
+                    // Try fallback path if root image failed
+                    if (!img.dataset.fallbackAttempted) {
+                        img.dataset.fallbackAttempted = 'true';
+                        img.src = secondarySrc;
+                    } else {
+                        loadedCount++;
+                        targetProgress = Math.round((loadedCount / TOTAL_FRAMES) * 100);
+                        if (loadedCount === TOTAL_FRAMES) preloadingComplete = true;
+                    }
                 };
 
                 images[i] = img;
