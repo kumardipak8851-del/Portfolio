@@ -1600,12 +1600,12 @@ body {
     border-radius: 2px;
 }
 
-/* Media Queries for Mobile Responsiveness */
+/* Media Queries for Comprehensive Mobile & Tablet Responsiveness */
 @media (max-width: 1024px) {
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
-        margin-top: 3rem;
+        gap: 2.5rem;
+        margin-top: 2rem;
     }
 
     .hero-right {
@@ -1617,6 +1617,11 @@ body {
 
     .stats-stack {
         width: 200px;
+    }
+
+    .projects-grid, .services-grid, .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
     }
 }
 
@@ -1660,11 +1665,17 @@ body {
     }
 
     .site-header {
-        padding: 1rem 1.25rem;
+        padding: 0.9rem 1.25rem;
     }
 
     .hero-section {
-        padding: 5rem 1.5rem 2rem 1.5rem;
+        padding: 4.5rem 1.25rem 2rem 1.25rem;
+        min-height: auto;
+    }
+
+    .content-section {
+        padding: 3.5rem 1.25rem;
+        min-height: auto;
     }
 
     .nav-menu {
@@ -1672,17 +1683,17 @@ body {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 82vw;
+        width: 85vw;
         max-width: 320px;
         height: 100vh;
-        background: rgba(10, 10, 16, 0.95);
+        background: rgba(10, 10, 16, 0.96);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         border-left: 1px solid rgba(240, 29, 36, 0.3);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2.2rem;
+        gap: 2rem;
         padding: 2rem;
         z-index: 101;
         transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -1695,6 +1706,10 @@ body {
 
     .nav-link {
         font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
     }
 
     .cta-btn.cta-highlight {
@@ -1702,21 +1717,150 @@ body {
     }
 
     .hero-name {
-        font-size: 3.5rem;
+        font-size: clamp(2.6rem, 8.5vw, 4.2rem);
+        white-space: normal;
+        word-break: break-word;
     }
 
     .hero-right {
         flex-direction: column;
-        gap: 2rem;
+        align-items: flex-start;
+        gap: 1.8rem;
     }
 
     .stats-stack {
         width: 100%;
     }
 
-    .site-footer {
-        flex-direction: column;
+    .projects-grid, .services-grid, .contact-grid {
+        grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .glass-panel {
+        padding: 1.6rem 1.25rem;
+    }
+
+    .portfolio-footer {
+        padding: 2.5rem 1.25rem 1.8rem 1.25rem;
+    }
+
+    .footer-header-row, .footer-links-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.4rem;
+    }
+
+    .footer-nav-group, .footer-social-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+    }
+
+    .footer-link, .footer-social-link {
+        font-size: 0.95rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+/* Mobile Breakpoints: 480px, 430px, 414px, 390px, 375px, 320px */
+@media (max-width: 480px) {
+    .ui-overlay {
+        padding: 0.9rem 0.8rem;
+    }
+
+    .progress-track {
+        width: 80px;
+    }
+
+    .sequence-badge {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.7rem;
+    }
+
+    .hero-section {
+        padding: 4.2rem 1rem 1.5rem 1rem;
+    }
+
+    .script-greeting {
+        font-size: 2.2rem;
+    }
+
+    .hero-name {
+        font-size: clamp(2.3rem, 10vw, 3.4rem);
+    }
+
+    .hero-role {
+        font-size: 0.82rem;
+    }
+
+    .hero-description {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .primary-btn, .secondary-btn {
+        width: 100%;
         text-align: center;
+        justify-content: center;
+        min-height: 48px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .status-badge {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .badge-text {
+        font-size: 0.68rem;
+    }
+
+    .circle-badge {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .stat-number-wrap {
+        font-size: 2.6rem;
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        margin-bottom: 1.6rem;
+    }
+
+    .testimonial-card {
+        min-width: 260px;
+        max-width: calc(100vw - 2.5rem);
+        padding: 1.25rem;
+    }
+
+    .contact-info-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-name {
+        font-size: 2.1rem;
+    }
+
+    .script-greeting {
+        font-size: 1.9rem;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
     }
 }
