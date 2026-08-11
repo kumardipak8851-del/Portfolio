@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealSections.forEach((sec) => observer.observe(sec));
     };
 
-    // Mobile Navigation Drawer Toggle
+    // Mobile Navigation Drawer Toggle & Click-Outside Dismissal
     const setupMobileNav = () => {
         const toggleBtn = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
@@ -302,7 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!toggleBtn || !navMenu) return;
 
-        toggleBtn.addEventListener('click', () => {
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             toggleBtn.classList.toggle('is-active');
             navMenu.classList.toggle('mobile-open');
         });
@@ -312,6 +313,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleBtn.classList.remove('is-active');
                 navMenu.classList.remove('mobile-open');
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('mobile-open')) {
+                const isClickInside = navMenu.contains(e.target);
+                const isClickToggle = toggleBtn.contains(e.target);
+                if (!isClickInside && !isClickToggle) {
+                    toggleBtn.classList.remove('is-active');
+                    navMenu.classList.remove('mobile-open');
+                }
+            }
         });
     };
 
