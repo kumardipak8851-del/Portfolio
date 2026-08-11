@@ -187,7 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             drawWidth = height * imgRatio;
             drawHeight = height;
-            drawX = (width - drawWidth) / 2;
+            const focusRatio = width <= 768 ? 0.42 : 0.5;
+            drawX = (width - drawWidth) * focusRatio;
             drawY = 0;
         }
 
