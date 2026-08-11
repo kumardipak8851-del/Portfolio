@@ -616,6 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const init = async () => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('orientationchange', resizeCanvas);
         window.addEventListener('scroll', updateTargetFrame, { passive: true });
 
         setupMobileNav();
