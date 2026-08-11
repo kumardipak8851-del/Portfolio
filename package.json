@@ -1,0 +1,23 @@
+{
+  "name": "kundan-kumar-portfolio",
+  "version": "1.0.0",
+  "description": "Kundan Kumar - AI Website Developer Animated Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "build": "echo 'Static website build complete'"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "keywords": [
+    "portfolio",
+    "web-developer",
+    "animation",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  "author": "Kundan Kumar",
+  "license": "ISC"
+}
