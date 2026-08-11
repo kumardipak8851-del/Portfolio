@@ -1446,8 +1446,9 @@ body {
 }
 
 /* Responsive Footer Adjustments */
-/* Premium Custom Cursor System */
-/* Custom Cursor Desktop System */
+/* ==========================================================================
+   FUTURISTIC ORBIT CUSTOM CURSOR SYSTEM (Desktop Fine Pointer Only)
+   ========================================================================== */
 @media (hover: hover) and (pointer: fine) {
     *, *::before, *::after,
     body, html, header, nav, section, footer, main, aside, div, span, p, h1, h2, h3, h4, h5, h6,
@@ -1456,107 +1457,191 @@ body {
         cursor: none !important;
     }
 
-    .custom-cursor-dot {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 8px !important;
-        height: 8px !important;
-        background-color: var(--red-primary) !important;
-        border-radius: 50% !important;
+    .orbit-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
         pointer-events: none !important;
         z-index: 2147483647 !important;
-        transform: translate(-50%, -50%) !important;
-        box-shadow: 0 0 10px var(--red-primary), 0 0 20px rgba(240, 29, 36, 0.9) !important;
-        transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s ease !important;
-        opacity: 1 !important;
     }
 
-    .custom-cursor-ring {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 38px;
-        height: 38px;
-        border: 1.5px solid rgba(240, 29, 36, 0.85);
-        background: rgba(240, 29, 36, 0.08);
+    /* 1. Solid Center Dot */
+    .cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        margin-left: -3px;
+        margin-top: -3px;
+        background-color: var(--red-primary);
+        border-radius: 50%;
+        pointer-events: none !important;
+        z-index: 2147483647 !important;
+        box-shadow: 0 0 10px var(--red-primary), 0 0 18px rgba(240, 29, 36, 0.9);
+        will-change: transform;
+        transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
+    }
+
+    /* 2. Outer Circular Ring */
+    .cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 42px;
+        height: 42px;
+        margin-left: -21px;
+        margin-top: -21px;
+        border: 1.5px solid rgba(240, 29, 36, 0.75);
+        background: rgba(240, 29, 36, 0.05);
         border-radius: 50%;
         pointer-events: none !important;
         z-index: 2147483646 !important;
-        transform: translate(-50%, -50%);
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease, opacity 0.2s ease;
-        opacity: 1;
+        will-change: transform;
+        box-shadow: 0 0 15px rgba(240, 29, 36, 0.2);
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                    margin-left 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    margin-top 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.3s ease, 
+                    border-color 0.3s ease, 
+                    box-shadow 0.3s ease, 
+                    opacity 0.25s ease;
     }
 
-    .cursor-text {
+    /* 3. Orbiting Dot */
+    .orbit-dot {
+        position: absolute;
+        top: -3px;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        margin-left: -2.5px;
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #ffffff, 0 0 12px var(--red-primary);
+        transform-origin: 2.5px 24px;
+        animation: orbitRotate 2.8s linear infinite;
+        transition: transform-origin 0.3s ease, animation-duration 0.3s ease;
+    }
+
+    @keyframes orbitRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* 4. Small Dynamic Hover Badge Label */
+    .cursor-badge {
         font-family: var(--font-mono);
-        font-size: 0.65rem;
+        font-size: 0.62rem;
         font-weight: 800;
         color: #ffffff;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.14em;
         opacity: 0;
         transform: scale(0.5);
         transition: opacity 0.25s ease, transform 0.25s ease;
-        text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+        pointer-events: none !important;
     }
 
-    /* Cursor States */
-    .custom-cursor-ring.cursor-hover-link {
+    /* 5. Subtle Trailing Dots */
+    .cursor-trail-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        background-color: var(--red-primary);
+        pointer-events: none !important;
+        z-index: 2147483645 !important;
+        will-change: transform;
+        transition: opacity 0.25s ease;
+    }
+    .cursor-trail-dot.t1 { width: 5px; height: 5px; margin-left: -2.5px; margin-top: -2.5px; opacity: 0.45; }
+    .cursor-trail-dot.t2 { width: 4px; height: 4px; margin-left: -2px; margin-top: -2px; opacity: 0.28; }
+    .cursor-trail-dot.t3 { width: 3px; height: 3px; margin-left: -1.5px; margin-top: -1.5px; opacity: 0.15; }
+
+    /* Interactive Hover States */
+    /* Link Hover -> GO */
+    .cursor-ring.is-hover-link {
         width: 48px;
         height: 48px;
+        margin-left: -24px;
+        margin-top: -24px;
         border-color: rgba(255, 255, 255, 0.9);
-        background: rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.1);
     }
-
-    .custom-cursor-ring.cursor-hover-btn {
-        width: 56px;
-        height: 56px;
-        border-color: var(--red-primary);
-        background: rgba(240, 29, 36, 0.22);
-        box-shadow: 0 0 25px rgba(240, 29, 36, 0.4);
+    .cursor-ring.is-hover-link .orbit-dot {
+        transform-origin: 2.5px 27px;
+        animation-duration: 1.5s;
     }
-
-    .custom-cursor-ring.cursor-hover-image {
-        width: 54px;
-        height: 54px;
-        border-color: rgba(255, 255, 255, 0.8);
-        background: rgba(255, 255, 255, 0.08);
-    }
-
-    .custom-cursor-ring.cursor-hover-card {
-        width: 72px;
-        height: 72px;
-        border-color: var(--red-primary);
-        background: var(--red-primary);
-        box-shadow: 0 0 30px var(--red-glow);
-    }
-
-    .custom-cursor-ring.cursor-hover-card .cursor-text {
+    .cursor-ring.is-hover-link .cursor-badge {
         opacity: 1;
         transform: scale(1);
     }
 
-    .custom-cursor-dot.cursor-hidden,
-    .custom-cursor-ring.cursor-hidden {
+    /* Button Hover -> OPEN */
+    .cursor-ring.is-hover-btn {
+        width: 58px;
+        height: 58px;
+        margin-left: -29px;
+        margin-top: -29px;
+        border-color: var(--red-primary);
+        background: rgba(240, 29, 36, 0.2);
+        box-shadow: 0 0 25px rgba(240, 29, 36, 0.45);
+    }
+    .cursor-ring.is-hover-btn .orbit-dot {
+        transform-origin: 2.5px 32px;
+        animation-duration: 1.2s;
+    }
+    .cursor-ring.is-hover-btn .cursor-badge {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Project Card Hover -> VIEW → */
+    .cursor-ring.is-hover-card {
+        width: 76px;
+        height: 76px;
+        margin-left: -38px;
+        margin-top: -38px;
+        border-color: var(--red-primary);
+        background: rgba(240, 29, 36, 0.92);
+        box-shadow: 0 0 35px var(--red-glow);
+    }
+    .cursor-ring.is-hover-card .orbit-dot {
+        transform-origin: 2.5px 41px;
+        animation-duration: 0.9s;
+    }
+    .cursor-ring.is-hover-card .cursor-badge {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Click Ripple Effect */
+    .cursor-dot.is-clicked {
+        opacity: 0.5;
+    }
+    .cursor-ring.is-clicked {
+        transform: scale(0.85);
+    }
+
+    /* Hidden State */
+    .orbit-cursor-hidden {
         opacity: 0 !important;
-    }
-
-    .custom-cursor-dot.is-clicked {
-        transform: translate(-50%, -50%) scale(0.5) !important;
-    }
-
-    .custom-cursor-ring.is-clicked {
-        transform: translate(-50%, -50%) scale(0.85);
     }
 }
 
-/* Hide Custom Cursor on Mobile / Tablet Touch Devices */
+/* Mobile & Touch Devices -> Completely Disable Orbit Cursor */
 @media (max-width: 1024px), (pointer: coarse) {
-    .custom-cursor-dot,
-    .custom-cursor-ring {
+    .orbit-cursor,
+    .cursor-dot,
+    .cursor-ring,
+    .cursor-trail-dot {
         display: none !important;
     }
 
