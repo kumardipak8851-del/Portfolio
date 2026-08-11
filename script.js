@@ -570,8 +570,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Hover Effect Handlers
-        const links = document.querySelectorAll('a:not(.primary-btn):not(.secondary-btn):not(.cta-btn):not(.footer-cta-link), .nav-link, .footer-link, .footer-social-link');
-        const buttons = document.querySelectorAll('.primary-btn, .secondary-btn, .cta-btn, .footer-cta-link, .pill-btn-contact, button, [role="button"]');
+        const links = document.querySelectorAll('.brand-logo, .brand-logo *, .nav-link, .footer-link, .footer-social-link, a:not(.primary-btn):not(.secondary-btn):not(.cta-btn):not(.footer-cta-link)');
+        const buttons = document.querySelectorAll('.primary-btn, .secondary-btn, .cta-btn, .cta-highlight, .footer-cta-link, .pill-btn-contact, button, [role="button"]');
         const cards = document.querySelectorAll('.project-card');
         const images = document.querySelectorAll('img:not(#animation-canvas), .author-avatar, .hero-image');
 
