@@ -504,79 +504,59 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('touchend', stopDrag);
     };
 
-    // Futuristic Orbit Custom Cursor System (Ultra-Performance translate3d & Lerp)
+    // High-Contrast Single Premium Custom Cursor Controller
     const setupCustomCursor = () => {
-        const cursorContainer = document.getElementById('orbit-cursor');
+        const cursorContainer = document.getElementById('custom-cursor');
         const dot = document.getElementById('cursor-dot');
         const ring = document.getElementById('cursor-ring');
         const badge = document.getElementById('cursor-badge');
-        const trail1 = document.getElementById('trail-1');
-        const trail2 = document.getElementById('trail-2');
-        const trail3 = document.getElementById('trail-3');
 
         if (!cursorContainer || !dot || !ring) return;
 
-        // Desktop check: Only run if device has fine hover pointer
-        const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        // Enable custom cursor for desktop viewports (width > 1024)
+        const isDesktop = window.innerWidth > 1024;
         if (!isDesktop) {
             cursorContainer.style.display = 'none';
+            document.body.classList.remove('has-custom-cursor');
             return;
         }
 
-        let mouseX = -100;
-        let mouseY = -100;
+        // Add body class for cursor: none styling
+        document.body.classList.add('has-custom-cursor');
 
-        let ringX = -100;
-        let ringY = -100;
+        // Initialize positions to center of screen
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
 
-        let t1X = -100, t1Y = -100;
-        let t2X = -100, t2Y = -100;
-        let t3X = -100, t3Y = -100;
+        // Smooth Lerp factor (0.18 for smooth outer ring delay)
+        const lerpFactor = 0.18;
 
-        const lerpRing = 0.18;
-        const lerpT1 = 0.35;
-        const lerpT2 = 0.22;
-        const lerpT3 = 0.14;
+        // Initial positioning
+        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
 
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
 
-            // Instant hardware-accelerated movement for center dot using translate3d
+            // Fast hardware-accelerated center dot movement
             dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-
-            cursorContainer.classList.remove('orbit-cursor-hidden');
+            cursorContainer.classList.remove('custom-cursor-hidden');
         }, { passive: true });
 
-        // Animation Loop for Outer Ring & Motion Trails via requestAnimationFrame
-        const renderOrbitCursor = () => {
-            ringX += (mouseX - ringX) * lerpRing;
-            ringY += (mouseY - ringY) * lerpRing;
+        // Animation Loop for Outer Ring via requestAnimationFrame
+        const renderCursor = () => {
+            ringX += (mouseX - ringX) * lerpFactor;
+            ringY += (mouseY - ringY) * lerpFactor;
             ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
 
-            if (trail1) {
-                t1X += (mouseX - t1X) * lerpT1;
-                t1Y += (mouseY - t1Y) * lerpT1;
-                trail1.style.transform = `translate3d(${t1X}px, ${t1Y}px, 0)`;
-            }
-
-            if (trail2) {
-                t2X += (t1X - t2X) * lerpT2;
-                t2Y += (t1Y - t2Y) * lerpT2;
-                trail2.style.transform = `translate3d(${t2X}px, ${t2Y}px, 0)`;
-            }
-
-            if (trail3) {
-                t3X += (t2X - t3X) * lerpT3;
-                t3Y += (t2Y - t3Y) * lerpT3;
-                trail3.style.transform = `translate3d(${t3X}px, ${t3Y}px, 0)`;
-            }
-
-            requestAnimationFrame(renderOrbitCursor);
+            requestAnimationFrame(renderCursor);
         };
-        requestAnimationFrame(renderOrbitCursor);
+        requestAnimationFrame(renderCursor);
 
-        // Click Ripple & Scale Effects
+        // Click Scale & Ripple Animation
         window.addEventListener('mousedown', () => {
             dot.classList.add('is-clicked');
             ring.classList.add('is-clicked');
@@ -589,57 +569,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Window Edge Detection
         document.addEventListener('mouseleave', () => {
-            cursorContainer.classList.add('orbit-cursor-hidden');
+            cursorContainer.classList.add('custom-cursor-hidden');
         });
 
         document.addEventListener('mouseenter', () => {
-            cursorContainer.classList.remove('orbit-cursor-hidden');
+            cursorContainer.classList.remove('custom-cursor-hidden');
         });
 
         // Hover Handlers for Interactive Elements
-        const links = document.querySelectorAll('.brand-logo, .brand-logo *, .nav-link, .footer-link, .footer-social-link, a:not(.primary-btn):not(.secondary-btn):not(.cta-btn):not(.footer-cta-link)');
-        const buttons = document.querySelectorAll('.primary-btn, .secondary-btn, .cta-btn, .cta-highlight, .footer-cta-link, .pill-btn-contact, button, [role="button"]');
-        const cards = document.querySelectorAll('.project-card');
+        const interactiveItems = document.querySelectorAll('.brand-logo, .brand-logo *, .nav-link, .footer-link, .footer-social-link, a, .primary-btn, .secondary-btn, .cta-btn, .cta-highlight, .footer-cta-link, .pill-btn-contact, button, [role="button"]');
+        const projectCards = document.querySelectorAll('.project-card');
 
-        // Links -> GO Label
-        links.forEach((link) => {
-            link.addEventListener('mouseenter', () => {
-                if (badge) badge.textContent = 'GO';
-                ring.classList.add('is-hover-link');
+        interactiveItems.forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                ring.classList.add('is-hover-target');
+                dot.classList.add('is-hover-target');
             });
-            link.addEventListener('mouseleave', () => {
-                if (badge) badge.textContent = '';
-                ring.classList.remove('is-hover-link');
+            item.addEventListener('mouseleave', () => {
+                ring.classList.remove('is-hover-target');
+                dot.classList.remove('is-hover-target');
+                item.style.transform = '';
             });
+
+            // Subtle magnetic pull for buttons
+            if (item.classList.contains('primary-btn') || item.classList.contains('secondary-btn') || item.classList.contains('cta-btn')) {
+                item.addEventListener('mousemove', (e) => {
+                    const rect = item.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const diffX = e.clientX - centerX;
+                    const diffY = e.clientY - centerY;
+
+                    item.style.transform = `translate3d(${diffX * 0.12}px, ${diffY * 0.12}px, 0)`;
+                });
+            }
         });
 
-        // Buttons -> OPEN Label + Magnetic Effect
-        buttons.forEach((btn) => {
-            btn.addEventListener('mouseenter', () => {
-                if (badge) badge.textContent = 'OPEN';
-                ring.classList.add('is-hover-btn');
-            });
-            btn.addEventListener('mouseleave', () => {
-                if (badge) badge.textContent = '';
-                ring.classList.remove('is-hover-btn');
-                btn.style.transform = '';
-            });
-
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const btnCenterX = rect.left + rect.width / 2;
-                const btnCenterY = rect.top + rect.height / 2;
-                const distanceX = e.clientX - btnCenterX;
-                const distanceY = e.clientY - btnCenterY;
-
-                btn.style.transform = `translate3d(${distanceX * 0.12}px, ${distanceY * 0.12}px, 0)`;
-            });
-        });
-
-        // Project Cards -> VIEW → Label
-        cards.forEach((card) => {
+        projectCards.forEach((card) => {
             card.addEventListener('mouseenter', () => {
-                if (badge) badge.textContent = 'VIEW →';
+                if (badge) badge.textContent = 'VIEW';
                 ring.classList.add('is-hover-card');
                 dot.classList.add('is-hover-card');
             });
