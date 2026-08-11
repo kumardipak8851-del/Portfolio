@@ -527,9 +527,13 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
+
+            dot.classList.remove('cursor-hidden');
+            ring.classList.remove('cursor-hidden');
+
             dot.style.left = `${mouseX}px`;
             dot.style.top = `${mouseY}px`;
-        });
+        }, { passive: true });
 
         // Animation Loop for Ring Lerp
         const renderCursor = () => {
@@ -569,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const links = document.querySelectorAll('a:not(.primary-btn):not(.secondary-btn):not(.cta-btn):not(.footer-cta-link), .nav-link, .footer-link, .footer-social-link');
         const buttons = document.querySelectorAll('.primary-btn, .secondary-btn, .cta-btn, .footer-cta-link, .pill-btn-contact, button, [role="button"]');
         const cards = document.querySelectorAll('.project-card');
-        const images = document.querySelectorAll('img, .author-avatar, .hero-image, canvas');
+        const images = document.querySelectorAll('img:not(#animation-canvas), .author-avatar, .hero-image');
 
         // Links -> pointer style expansion
         links.forEach((link) => {
